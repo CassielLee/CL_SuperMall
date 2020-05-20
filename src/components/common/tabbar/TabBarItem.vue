@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     handleTabClick() {
-      console.log(this.activeColor);
       if (!this.isActive) {
         this.$router.push(this.tabInfo.link);
       }

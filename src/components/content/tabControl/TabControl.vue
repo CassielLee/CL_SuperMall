@@ -5,9 +5,9 @@
       :key="index"
       class="tab-control-item"
       :class="{active:currentIndex===index}"
-      @click="handleTabClick(index)"
+      @click="handleTabClick(index,title)"
     >
-      <span>{{title}}</span>
+      <span>{{title.txt}}</span>
     </div>
   </div>
 </template>
@@ -28,8 +28,9 @@ export default {
     };
   },
   methods: {
-    handleTabClick(index) {
+    handleTabClick(index, title) {
       this.currentIndex = index;
+      this.$emit("tabItemChange", title.type);
     }
   }
 };
@@ -41,10 +42,12 @@ export default {
   height: 40px;
   line-height: 40px;
   font-size: 16px;
+  z-index: 10;
+  background-color: #fff;
   .tab-control-item {
     flex: 1;
-    span{
-        padding: 3px 5px;
+    span {
+      padding: 3px 5px;
     }
     &.active {
       color: rgb(18, 150, 219);

@@ -2,9 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/home/Home.vue";
 
-const Categroy = () => import("../views/Categroy.vue");
-const Cart = () => import("../views/Cart.vue");
-const Person = () => import("../views/Person");
+const Categroy = () => import("../views/categroy/Categroy.vue");
+const Cart = () => import("../views/cart/Cart.vue");
+const Person = () => import("../views/person/Person");
+const Detail = () => import("../views/detail/Detail");
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,14 @@ const routes = [
     component: Home,
     meta: {
       title: "Home",
+    },
+  },
+  {
+    path: "/detail/:iid",
+    name: "Detail",
+    component: Detail,
+    meta: {
+      title: "Detail",
     },
   },
   {
